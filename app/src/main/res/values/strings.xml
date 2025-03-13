@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Supers</string>
+    <string name="action_search">Search</string>
+    action_search
 </resources>

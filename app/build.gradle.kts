@@ -37,8 +37,11 @@ android {
 
 dependencies {
 
-    implementation (libs.retrofit)
+    // retofit2 2.11.0 -> picasso 2.8
+    implementation(libs.retrofit)
     implementation(libs.converter.gson)
+
+    implementation(libs.picasso)
 
 
     implementation(libs.androidx.core.ktx)

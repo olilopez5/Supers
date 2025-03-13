@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/menu_main_activity_navigation" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true" />
+
+   <androidx.cardview.widget.CardView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_margin="8dp"
+       app:cardCornerRadius="16dp"
+       app:cardElevation="8dp">
+
+
+       <ImageView
+           android:id="@+id/heroImageView"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           tools:src="@mipmap/ic_launcher"
+           android:scaleType="centerCrop"/>
+
+       <TextView
+           android:id="@+id/nameTView"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           tools:text="Superhero Name"
+           android:textStyle="bold"
+           android:textSize="20sp"
+           android:textColor="@color/white"
+           android:background="@color/label_background"
+           android:gravity="center"
+           android:layout_gravity="bottom" />
+
+
+
+
+
+   </androidx.cardview.widget.CardView>
+
+
+
+</LinearLayout>

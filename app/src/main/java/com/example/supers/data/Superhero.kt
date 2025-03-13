@@ -1,4 +1,4 @@
-package com.example.supers
+package com.example.supers.data
 
 class SuperheroResponse(
     val response: String ,
@@ -8,6 +8,9 @@ class SuperheroResponse(
 
 class Superhero (
     val id: String ,
-    val name: String
+    val name: String ,
+    val image : Image
 ) {
 }
+
+ class Image (val url: String)

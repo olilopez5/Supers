@@ -1,7 +1,7 @@
 package com.example.supers.api
 
-import com.example.supers.Superhero
-import retrofit2.Call
+import com.example.supers.data.Superhero
+import com.example.supers.data.SuperheroResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -13,9 +13,9 @@ interface SuperheroService {
     // parse auto con retrofit
 
     @GET("search/{name}")
-    suspend fun findSupersByName(@Path("name")query: String) : Superhero
+    suspend fun findSupersByName(@Path("name")query: String) : SuperheroResponse
 
     @GET("{id}")
-    suspend fun findSuperheroById(@Path("id")id: String) : Call<Superhero>
+    suspend fun findSuperheroById(@Path("id")id: String) : Superhero
 
 }
