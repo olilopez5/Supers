@@ -1,8 +1,10 @@
 package com.example.supers.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -39,33 +41,24 @@ class MainActivity : AppCompatActivity() {
         }
         recyclerView = findViewById(R.id.recyclerView)
 
-        adapter = SuperheroAdapter(superheroList)
+        adapter = SuperheroAdapter(superheroList) { position -> // renombrar it
+            val superhero = superheroList[position]
+
+            //Toast.makeText(this, superhero.name, Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this, DetailActivity::class.java)
+            intent.putExtra("SUPERHERO_ID", superhero.id)
+            startActivity(intent)
+
+        }
 
         recyclerView.adapter = adapter
         recyclerView.layoutManager = GridLayoutManager(this, 2)
 
-        getRetrofit()
-        }
+        searchSuperheroesByName("a")
 
-        fun getRetrofit(){
+        supportActionBar?.title = "League Of Heroes"
 
-            val retrofit: Retrofit = Retrofit.Builder()
-                .baseUrl("https://superheroapi.com/api/eae2834903ff6404d646eb85ad3a2cd5/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-
-            val service = retrofit.create(SuperheroService::class.java)
-
-            CoroutineScope(Dispatchers.IO).launch {
-                val result = service.findSupersByName("super")
-
-                superheroList = result.results
-
-                CoroutineScope(Dispatchers.Main).launch {
-                    adapter.items = superheroList
-                    adapter.notifyDataSetChanged()
-                }
-            }
         }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main_activity_navigation, menu)
@@ -74,22 +67,45 @@ class MainActivity : AppCompatActivity() {
         val searchView = menuItem?.actionView as SearchView
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            // para llamadas a internet lo busca completo, no letra por letra
             override fun onQueryTextSubmit(query: String): Boolean {
-                Log.i("MENU", "He pulsado Enter")
+                searchSuperheroesByName(query)
+                //getRetrofit(query)
                 return false
             }
 
             override fun onQueryTextChange(query: String): Boolean {
-                ListSuperhero = Superhero.ListSuperhero.filter {
-                    getString(it.name).contains(query, true)
-                }
-                adapter.updateItems(ListSuperhero)
                 return false
             }
         })
 
         return true
     }
+    // Solo para contruir el objeto SuperheroService
+    fun getRetrofit() : SuperheroService {
+        val retrofit: Retrofit = Retrofit.Builder()
+            .baseUrl("https://superheroapi.com/api/eae2834903ff6404d646eb85ad3a2cd5/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        return retrofit.create(SuperheroService::class.java)
+    }
+
+
+    private fun searchSuperheroesByName(query: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val service = getRetrofit()
+                val result = service.findSupersByName(query)
+
+                superheroList = result.results
+
+                CoroutineScope(Dispatchers.Main).launch {
+                    adapter.items = superheroList
+                    adapter.notifyDataSetChanged()
+                }
+            }catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
 }
-
-

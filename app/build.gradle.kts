@@ -38,6 +38,10 @@ android {
 dependencies {
 
     // retofit2 2.11.0 -> picasso 2.8
+    // implementation 'com.squareup.retrofit2:retrofit:(insert latest version)'
+    // implementation 'com.squareup.retrofit2:converter-gson:(latest.version')
+    //implementation 'com.squareup.picasso:picasso:(insert latest version)'
+
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
 
