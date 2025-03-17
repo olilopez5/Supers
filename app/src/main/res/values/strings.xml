@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Supers</string>
     <string name="action_search">Search</string>
-    action_search
+    <string name="action_bio">Biography</string>
+    <string name="action_appearance">Appearance</string>
+    <string name="action_stats">Stats</string>
+
 </resources>

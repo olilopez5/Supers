@@ -33,6 +33,12 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
+    // genera clases por cada layout y hace los findviewbyid automaticamente
+    buildFeatures{
+        viewBinding = true
+    }
+
 }
 
 dependencies {

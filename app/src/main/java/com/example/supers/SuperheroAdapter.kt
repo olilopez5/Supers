@@ -8,11 +8,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.supers.data.Superhero
+import com.example.supers.databinding.ItemSuperheroBinding
 import com.squareup.picasso.Picasso
 
 class SuperheroAdapter(var items: List<Superhero> , val onClick: (Int) -> Unit) : Adapter<SuperheroViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuperheroViewHolder {
+        val binding = ItemSuperheroBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_superhero, parent, false)
         return SuperheroViewHolder(view)
     }
