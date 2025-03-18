@@ -98,6 +98,12 @@ class DetailActivity : AppCompatActivity() {
         binding.appearanceContent.heightTextView.text = superhero.appearance.getHeightCm()
 
         // Stats
+        binding.statsContent.intelligenceProgressBar.progress = superhero.powerstats.intelligence.toIntOrNull() ?: 0
+        binding.statsContent.strengthProgressBar.progress = superhero.powerstats.strength.toIntOrNull() ?: 0
+        binding.statsContent.speedProgressBar.progress = superhero.powerstats.speed.toIntOrNull() ?: 0
+        binding.statsContent.durabilityProgressBar.progress = superhero.powerstats.durability.toIntOrNull() ?: 0
+        binding.statsContent.powerProgressBar.progress = superhero.powerstats.power.toIntOrNull() ?: 0
+        binding.statsContent.combatProgressBar.progress = superhero.powerstats.combat.toIntOrNull() ?: 0
 
 
     }

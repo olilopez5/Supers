@@ -48,11 +48,11 @@ class Appearance (
 
 class Powerstats (
     val intelligence: String ,
-    val strenght: String ,
+    val strength: String ,
     val speed: String ,
     val durability: String ,
     val power: String ,
-    val combat: String ,
+    val combat: String
 )
 
 class Image (val url: String)

@@ -2,16 +2,13 @@ package com.example.supers.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.supers.R
 import com.example.supers.SuperheroAdapter
 import com.example.supers.api.SuperheroService
@@ -65,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.title = "League Of Heroes"
         supportActionBar?.setHomeButtonEnabled(true)
 
-        }
+    }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main_activity_navigation, menu)
 
