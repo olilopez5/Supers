@@ -63,6 +63,7 @@ class MainActivity : AppCompatActivity() {
         searchSuperheroesByName("a")
 
         supportActionBar?.title = "League Of Heroes"
+        supportActionBar?.setHomeButtonEnabled(true)
 
         }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

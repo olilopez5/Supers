@@ -1,6 +1,8 @@
 package com.example.supers.activities
 
 import android.os.Bundle
+import android.view.MenuItem
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -36,11 +38,68 @@ class DetailActivity : AppCompatActivity() {
         val id = intent.getStringExtra("SUPERHERO_ID")!!
 
         getSuperById(id)
+
+        binding.navigationBar.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.action_bio -> {
+                    binding.appearanceContent.root.visibility = View.GONE
+                    binding.statsContent.root.visibility = View.GONE
+                    binding.biographyContent.root.visibility = View.VISIBLE
+                }
+                R.id.action_appearance -> {
+                    binding.statsContent.root.visibility = View.GONE
+                    binding.biographyContent.root.visibility = View.GONE
+                    binding.appearanceContent.root.visibility = View.VISIBLE
+                }
+                R.id.action_stats -> {
+                    binding.biographyContent.root.visibility = View.GONE
+                    binding.appearanceContent.root.visibility = View.GONE
+                    binding.statsContent.root.visibility = View.VISIBLE
+                }
+            }
+            true
+        }
+
+        binding.navigationBar.selectedItemId = R.id.action_bio
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 
     fun loadData() {
         Picasso.get().load(superhero.image.url).into(binding.heroImageView)
-       //binding.heroImageView
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = superhero.name
+        //supportActionBar?.subtitle = superhero.biography.fullName
+
+        // Biography
+        binding.biographyContent.publisherTextView.text = superhero.biography.publisher
+        binding.biographyContent.fullNameTextView.text = superhero.biography.fullName
+        binding.biographyContent.placeOfBirthTextView.text = superhero.biography.placeBirth
+        binding.biographyContent.alignmentTextView.text = superhero.biography.alignment.uppercase()
+        binding.biographyContent.baseTextView.text = superhero.work.base
+        binding.biographyContent.occupationTextView.text = superhero.work.occupation
+        binding.biographyContent.alterEgosTextView.text = superhero.biography.alterEgos
+
+
+        // Appearance
+        binding.appearanceContent.raceTextView.text = superhero.appearance.race
+        binding.appearanceContent.genderTextView.text = superhero.appearance.gender
+        binding.appearanceContent.weightTextView.text = superhero.appearance.getWeightKg()
+        binding.appearanceContent.heightTextView.text = superhero.appearance.getHeightCm()
+
+        // Stats
+
+
     }
 
     fun getRetrofit(): SuperheroService {
@@ -51,7 +110,6 @@ class DetailActivity : AppCompatActivity() {
 
         return retrofit.create(SuperheroService::class.java)
     }
-
     fun getSuperById(id: String) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
@@ -66,4 +124,8 @@ class DetailActivity : AppCompatActivity() {
             }
         }
     }
-}
+    }
+
+
+
+

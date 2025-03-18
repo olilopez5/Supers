@@ -1,8 +1,29 @@
 <resources>
     <string name="app_name">Supers</string>
+
     <string name="action_search">Search</string>
     <string name="action_bio">Biography</string>
     <string name="action_appearance">Appearance</string>
-    <string name="action_stats">Stats</string>
+    <string name="action_stats">Powerstats</string>
+
+    <string name="label_publisher">Publisher</string>
+    <string name="label_full_name">Full Name</string>
+    <string name="label_alter_egos">Alter Ego</string>
+    <string name="label_place_birth">Place of Birth</string>
+    <string name="label_base">Base</string>
+    <string name="label_occupation">Occupation</string>
+    <string name="label_alignment">Alignment</string>
+
+    <string name="label_gender">Gender</string>
+    <string name="label_race">Race</string>
+    <string name="label_height">Height</string>
+    <string name="label_weight">Weight</string>
+
+    <string name="label_intelligence">Intelligence</string>
+    <string name="label_strengh">Strengh</string>
+    <string name="label_speed">Speed</string>
+    <string name="label_durability">Durability</string>
+    <string name="label_power">Power</string>
+    <string name="label_combat">Combat</string>
 
 </resources>
