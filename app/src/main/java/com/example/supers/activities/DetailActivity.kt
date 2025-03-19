@@ -98,12 +98,23 @@ class DetailActivity : AppCompatActivity() {
         binding.appearanceContent.heightTextView.text = superhero.appearance.getHeightCm()
 
         // Stats
-        binding.statsContent.intelligenceProgressBar.progress = superhero.powerstats.intelligence.toIntOrNull() ?: 0
-        binding.statsContent.strengthProgressBar.progress = superhero.powerstats.strength.toIntOrNull() ?: 0
-        binding.statsContent.speedProgressBar.progress = superhero.powerstats.speed.toIntOrNull() ?: 0
-        binding.statsContent.durabilityProgressBar.progress = superhero.powerstats.durability.toIntOrNull() ?: 0
-        binding.statsContent.powerProgressBar.progress = superhero.powerstats.power.toIntOrNull() ?: 0
-        binding.statsContent.combatProgressBar.progress = superhero.powerstats.combat.toIntOrNull() ?: 0
+        with(superhero.powerstats){
+            binding.statsContent.intelligenceTextView.text = "${intelligence.toIntOrNull() ?: 0}"
+            binding.statsContent.strengthTextView.text = "${strength.toIntOrNull() ?: 0}"
+            binding.statsContent.speedTextView.text = "${speed.toIntOrNull() ?: 0}"
+            binding.statsContent.durabilityTextView.text = "${durability.toIntOrNull() ?: 0}"
+            binding.statsContent.powerTextView.text = "${power.toIntOrNull() ?: 0}"
+            binding.statsContent.combatTextView.text = "${combat.toIntOrNull() ?: 0}"
+
+
+            binding.statsContent.intelligenceProgressBar.progress = intelligence.toIntOrNull() ?: 0
+            binding.statsContent.strengthProgressBar.progress = strength.toIntOrNull() ?: 0
+            binding.statsContent.speedProgressBar.progress = speed.toIntOrNull() ?: 0
+            binding.statsContent.durabilityProgressBar.progress = durability.toIntOrNull() ?: 0
+            binding.statsContent.powerProgressBar.progress = power.toIntOrNull() ?: 0
+            binding.statsContent.combatProgressBar.progress = combat.toIntOrNull() ?: 0
+        }
+
 
 
     }

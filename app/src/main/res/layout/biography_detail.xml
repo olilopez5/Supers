@@ -14,6 +14,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginTop="14dp"
             android:textAlignment="textEnd"
             android:text="@string/label_publisher"
             android:layout_marginEnd="8dp"/>
@@ -23,6 +24,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
+            android:layout_marginTop="14dp"
             tools:text="Marvel"
             android:textStyle="bold"/>
 

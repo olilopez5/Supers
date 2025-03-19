@@ -1,5 +1,7 @@
 package com.example.supers.data
 
+import androidx.annotation.ColorRes
+import com.example.supers.R
 import com.google.gson.annotations.SerializedName
 
 class SuperheroResponse(
@@ -8,17 +10,28 @@ class SuperheroResponse(
 )
 
 
-class Superhero (
+ data class Superhero (
     val id: String ,
     val name: String ,
     val biography: Biography,
     val work: Work,
     val appearance: Appearance,
-    val powerstats : Powerstats ,
+    val powerstats : Powerstats,
     val image : Image
 )
+ {
+     //@ColorRes
+     fun getAlignmentColor(): Int{
+         return when(biography.alignment){
+             "good" -> R.color.alignment_good
+             "bad"-> R.color.alignment_bad
+             else -> R.color.alignment_neutral
 
-class Biography (
+         }
+     }
+ }
+
+ data class Biography (
     val publisher: String ,
     @SerializedName("full-name") val fullName: String ,
     @SerializedName("place-of-birth") val placeBirth: String ,
@@ -26,12 +39,12 @@ class Biography (
     @SerializedName("alter-egos") val alterEgos: String
 )
 
-class Work (
+ data class Work (
     val occupation: String ,
     val base: String
 )
 
-class Appearance (
+ data class Appearance (
     val gender: String ,
     val race: String ,
     val height: List<String>,
@@ -46,7 +59,7 @@ class Appearance (
     }
 }
 
-class Powerstats (
+ data class Powerstats (
     val intelligence: String ,
     val strength: String ,
     val speed: String ,
