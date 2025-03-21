@@ -36,6 +36,7 @@
         <ProgressBar
             android:id="@+id/intelligenceProgressBar"
             style="?android:attr/progressBarStyleHorizontal"
+            android:progressTint="@color/intelligence_progress"
             android:progress="50"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -73,6 +74,7 @@
         <ProgressBar
             android:id="@+id/strengthProgressBar"
             style="?android:attr/progressBarStyleHorizontal"
+            android:progressTint="@color/strength_progress"
             android:progress="50"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -110,6 +112,7 @@
         <ProgressBar
             android:id="@+id/speedProgressBar"
             style="?android:attr/progressBarStyleHorizontal"
+            android:progressTint="@color/speed_progress"
             android:progress="50"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -147,6 +150,7 @@
         <ProgressBar
             android:id="@+id/durabilityProgressBar"
             style="?android:attr/progressBarStyleHorizontal"
+            android:progressTint="@color/durability_progress"
             android:progress="50"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -184,6 +188,7 @@
         <ProgressBar
             android:id="@+id/powerProgressBar"
             style="?android:attr/progressBarStyleHorizontal"
+            android:progressTint="@color/power_progress"
             android:progress="50"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -221,6 +226,7 @@
         <ProgressBar
             android:id="@+id/combatProgressBar"
             style="?android:attr/progressBarStyleHorizontal"
+            android:progressTint="@color/combat_progress"
             android:progress="50"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

@@ -7,5 +7,12 @@
     <color name="alignment_bad">#DAB84E48</color>
     <color name="alignment_neutral">#CB757474</color>
 
+    <color name="intelligence_progress">#D5926CD9</color>
+    <color name="strength_progress">#BBF04E42</color>
+    <color name="speed_progress">#00BCD4</color>
+    <color name="durability_progress">#B364CE68</color>
+    <color name="power_progress">#D6DC5583</color>
+    <color name="combat_progress">#DDE67856</color>
+
 
 </resources>
