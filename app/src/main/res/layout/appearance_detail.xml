@@ -24,7 +24,7 @@
             android:layout_width="0dp"
             android:layout_marginTop="14dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="1"
             tools:text="Human"
             android:textStyle="bold"/>
 
@@ -47,7 +47,7 @@
             android:id="@+id/genderTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="1"
             tools:text="Male"
             android:textStyle="bold"/>
 
@@ -71,7 +71,7 @@
             android:id="@+id/heightTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="1"
             tools:text="180 cm"
             android:textStyle="bold"/>
 
@@ -94,7 +94,7 @@
             android:id="@+id/weightTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="1"
             tools:text="80 kg"
             android:textStyle="bold"/>
 

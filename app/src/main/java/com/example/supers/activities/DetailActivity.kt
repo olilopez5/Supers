@@ -86,9 +86,11 @@ class DetailActivity : AppCompatActivity() {
         binding.biographyContent.fullNameTextView.text = superhero.biography.fullName
         binding.biographyContent.placeOfBirthTextView.text = superhero.biography.placeBirth
         binding.biographyContent.alignmentTextView.text = superhero.biography.alignment.uppercase()
+        binding.biographyContent.alignmentTextView.setTextColor(getColor(superhero.getAlignmentColor()))
+        binding.biographyContent.alterEgosTextView.text = superhero.biography.alterEgos
+
         binding.biographyContent.baseTextView.text = superhero.work.base
         binding.biographyContent.occupationTextView.text = superhero.work.occupation
-        binding.biographyContent.alterEgosTextView.text = superhero.biography.alterEgos
 
 
         // Appearance
